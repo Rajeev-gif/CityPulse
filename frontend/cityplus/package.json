@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build:netlify": "cd frontend && npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
