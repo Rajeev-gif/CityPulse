@@ -3,7 +3,6 @@ import {
   Box,
   Grid,
   Typography,
-  Button,
   Select,
   MenuItem,
   FormControl,
@@ -20,7 +19,7 @@ import {
   Warning as WarningIcon,
 } from "@mui/icons-material";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import { Icon } from "leaflet";
+import { Icon, divIcon } from "leaflet"; // Added divIcon import
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import {
@@ -36,6 +35,19 @@ import {
 import { Bar, Doughnut } from "react-chartjs-2";
 import "leaflet/dist/leaflet.css";
 
+// Fix for default markers in react-leaflet
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import "../index.css";
+
+// Set default icon
+let DefaultIcon = new Icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+
 // Register ChartJS components
 ChartJS.register(
   CategoryScale,
@@ -47,7 +59,7 @@ ChartJS.register(
   ArcElement
 );
 
-const officialsDashboard = () => {
+const OfficialsDashboard = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [projects, setProjects] = useState([]);
   const [reports, setReports] = useState([]);
@@ -184,7 +196,7 @@ const officialsDashboard = () => {
     ],
   };
 
-  // Function to get appropriate icon based on type
+  // Function to get appropriate icon based on type - FIXED VERSION
   const createCustomIcon = (type, status) => {
     const color =
       status === "completed"
@@ -195,28 +207,28 @@ const officialsDashboard = () => {
         ? "blue"
         : "red";
 
-    const iconHtml = `
-      <div style="
-        background-color: ${color};
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        border: 2px solid white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold;
-      ">
-        ${type.charAt(0).toUpperCase()}
-      </div>
-    `;
-
-    return new Icon({
-      html: iconHtml,
+    return divIcon({
+      html: `
+        <div style="
+          background-color: ${color};
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 2px solid white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        ">
+          ${type.charAt(0).toUpperCase()}
+        </div>
+      `,
       iconSize: [30, 30],
       iconAnchor: [15, 15],
       popupAnchor: [0, -15],
+      className: "custom-div-icon",
     });
   };
 
@@ -608,4 +620,4 @@ const officialsDashboard = () => {
   );
 };
 
-export default officialsDashboard;
+export default OfficialsDashboard;

@@ -21,6 +21,11 @@ body {
   width: 100%;
 }
 
+.custom-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
 .leaflet-popup-content-wrapper {
   border-radius: 8px;
 }
@@ -35,4 +40,317 @@ body {
   border-bottom: 1px solid #eee;
   padding-bottom: 8px;
   margin-bottom: 10px;
+}
+
+/* Global Responsive Styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Map Container Responsive Styles */
+.leaflet-container {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* App header adjustments */
+  .MuiAppBar-root .MuiToolbar-root {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .MuiAppBar-root .MuiTypography-h6 {
+    font-size: 1rem;
+  }
+
+  .MuiAppBar-root .MuiButton-root {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    min-width: auto;
+  }
+
+  .MuiAppBar-root .MuiButton-startIcon {
+    margin-right: 4px;
+  }
+
+  .MuiAppBar-root .MuiButton-startIcon > * {
+    font-size: 16px;
+  }
+
+  /* Map controls positioning */
+  .leaflet-top.leaflet-left {
+    top: 70px;
+    left: 10px;
+  }
+
+  .leaflet-bottom.leaflet-left {
+    bottom: 80px;
+    left: 10px;
+  }
+
+  /* Report button positioning */
+  .MuiButton-contained[aria-label="Report Issue"] {
+    bottom: 20px;
+    right: 20px;
+    position: fixed;
+    z-index: 1000;
+    padding: 12px;
+    border-radius: 50%;
+    min-width: auto;
+    width: 60px;
+    height: 60px;
+  }
+
+  .MuiButton-contained[aria-label="Report Issue"] .MuiButton-startIcon {
+    margin: 0;
+  }
+
+  .MuiButton-contained[aria-label="Report Issue"] .MuiButton-label {
+    display: none;
+  }
+
+  /* Location button positioning */
+  .MuiButton-outlined[aria-label="Update My Location"] {
+    bottom: 90px;
+    right: 20px;
+    position: fixed;
+    z-index: 1000;
+    padding: 10px;
+    border-radius: 50%;
+    min-width: auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  .MuiButton-outlined[aria-label="Update My Location"] .MuiButton-startIcon {
+    margin: 0;
+  }
+
+  .MuiButton-outlined[aria-label="Update My Location"] .MuiButton-label {
+    display: none;
+  }
+
+  /* Map legend adjustments */
+  .MuiBox-root[style*="bottom: 20px"][style*="right: 10px"] {
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    padding: 12px;
+    max-width: calc(100% - 20px);
+  }
+
+  .MuiBox-root[style*="bottom: 20px"][style*="right: 10px"] .MuiTypography-h6 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .MuiBox-root[style*="bottom: 20px"][style*="right: 10px"]
+    .MuiTypography-body2 {
+    font-size: 0.8rem;
+  }
+
+  /* Location status indicator */
+  .MuiBox-root[style*="top: 20px"][style*="left: 20px"] {
+    top: 70px;
+    left: 10px;
+    padding: 8px;
+    max-width: calc(100% - 20px);
+  }
+
+  .MuiBox-root[style*="top: 20px"][style*="left: 20px"] .MuiTypography-body2 {
+    font-size: 0.8rem;
+  }
+
+  /* Modal adjustments */
+  .MuiModal-root .MuiBox-root {
+    width: 90vw;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .MuiModal-root .MuiTypography-h6 {
+    font-size: 1.2rem;
+  }
+
+  /* Dashboard specific styles */
+  .MuiDrawer-root .MuiPaper-root {
+    width: 100vw;
+    max-width: 320px;
+  }
+
+  .MuiGrid-container {
+    flex-direction: column;
+  }
+
+  .MuiGrid-item {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /* Alert notifications */
+  .MuiAlert-root {
+    width: 90vw;
+    max-width: 400px;
+    right: 5vw;
+    left: 5vw;
+  }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .MuiAppBar-root .MuiButton-root {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .MuiDrawer-root .MuiPaper-root {
+    width: 350px;
+  }
+}
+
+/* High-resolution devices */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .leaflet-container {
+    font-size: 12px;
+  }
+}
+
+/* Orientation-specific styles */
+@media (max-width: 768px) and (orientation: landscape) {
+  .MuiAppBar-root {
+    min-height: 48px;
+  }
+
+  .MuiAppBar-root .MuiToolbar-root {
+    min-height: 48px;
+  }
+
+  .leaflet-top.leaflet-left {
+    top: 60px;
+  }
+
+  .MuiButton-contained[aria-label="Report Issue"] {
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .MuiButton-outlined[aria-label="Update My Location"] {
+    bottom: 70px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Prevent zoom on input focus on mobile */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on focus */
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  .leaflet-bar a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .MuiButton-root {
+    min-height: 44px; /* Better touch target */
+  }
+
+  .MuiIconButton-root {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding: max(0px)) {
+  @media (max-width: 768px) {
+    .MuiAppBar-root {
+      padding-top: env(safe-area-inset-top);
+    }
+
+    .leaflet-top {
+      top: calc(70px + env(safe-area-inset-top));
+    }
+
+    .MuiButton-contained[aria-label="Report Issue"] {
+      bottom: calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .MuiButton-outlined[aria-label="Update My Location"] {
+      bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+
+    .MuiBox-root[style*="bottom: 20px"][style*="right: 10px"] {
+      bottom: calc(20px + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Leaflet popup mobile adjustments */
+.leaflet-popup-content-wrapper {
+  max-width: 90vw;
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+  line-height: 1.4;
+}
+
+/* Dashboard responsive fixes */
+@media (max-width: 768px) {
+  /* Make dashboard single column on mobile */
+  .MuiGrid-container {
+    flex-direction: column;
+  }
+
+  /* Adjust card sizes */
+  .MuiCard-root {
+    margin-bottom: 16px;
+  }
+
+  /* Smaller charts on mobile */
+  .MuiCardContent-root canvas {
+    max-height: 200px;
+  }
+
+  /* Better touch targets for list items */
+  .MuiListItem-root {
+    min-height: 60px;
+  }
+}
+
+/* Loading state improvements */
+.MuiCircularProgress-root {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Map legend icon sizes */
+.MuiBox-root[style*="bottom: 20px"][style*="right: 10px"] .MuiBox-root {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
 }

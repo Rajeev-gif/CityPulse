@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "citypulse-82305",
   storageBucket: "your-project.appspot.com",
   messagingSenderId: "838199654315",
-  appId: "your-app-id",
+  appId: "1:838199654315:web:83017b4e44b0448e6844ee",
 };
 
 // Initialize Firebase
